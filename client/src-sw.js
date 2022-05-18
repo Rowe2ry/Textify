@@ -32,8 +32,12 @@ const assetCache = new CacheFirst({
   plugins: [
     new CacheableResponsePlugin({
       statuses: [0, 200],
-    })
+    }),
+    new ExpirationPlugin({
+      maxEntries: 60,
+      maxAgeSeconds: 30 * 24 * 60 * 60,
+    }),
   ]
 });
 
-registerRoute(({ request }) => request.desitnation === 'image', assetCache);
+registerRoute(({ request }) => request.destination === 'image', assetCache);
