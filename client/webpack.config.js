@@ -23,11 +23,26 @@ module.exports = () => {
         title: 'Webpack Plugin',
       }),
       new InjectManifest({
-        swSrc: './src/sw.js',
+        swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
       new WebpackPwaManifest({
-        // TODO: Create a manifest.json:
+          "short-name": "J.A.T.E.",
+          "name": "Just Another Text Editor",
+          "description": "Takes notes with Javascript syntax highlighting!",
+          "icons": [
+              {
+                  "src": "./src/images/logo.png",
+                  "type": "image/png",
+                  "sizes": "128x128",
+                  "purpose": "any maskable"
+                }
+          ],
+          "orientation": "portrait",
+          "display": "standalone",
+          "start-url": "./",
+          "background_color": "#225ca3",
+        "theme_color": "#225ca3"
       }),
     ],
 
