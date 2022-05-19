@@ -24,6 +24,8 @@ module.exports = () => {
         swDest: 'service-worker.js',
       }),
       new WebpackPwaManifest({
+          fingerprints: false,
+          inject: true,
           short_name: "J.A.T.E.",
           name: "Just Another Text Editor",
           description: "Takes notes with Javascript syntax highlighting!",
@@ -37,8 +39,8 @@ module.exports = () => {
           ],
           orientation: "portrait",
           display: "standalone",
-          start_url: "/",
-          publicPath: "/",
+          start_url: "./",
+          publicPath: "./",
           background_color: "#225ca3",
         theme_color: "#225ca3"
       }),
